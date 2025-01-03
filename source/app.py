@@ -18,8 +18,7 @@ class App(QApplication):
         super().__init__(argv)
         self.setQuitOnLastWindowClosed(False)
     
-        self.main_win = MainWindow(5, self.__timeout_action, self.__activate_extended_mode)
-        self.main_win.show()
+        self.main_win = MainWindow(60 * 60 * 24, self.__timeout_action, self.__activate_extended_mode)
         
         self.tray = Tray(window=self.main_win)
         self.tray.trigger_quit_visibility(False)
