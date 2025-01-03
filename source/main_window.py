@@ -24,7 +24,7 @@ class MainWindow(QMainWindow):
         self.fart_sound.setSource(QUrl.fromLocalFile("./resources/sounds/fart/fart-with-reverb-39675.wav"))
     
     def __magic_sequence_cb(self):
-        self.timer.set_time(30)
+        self.timer.set_time(15)
         self.magic_sequence_cb()
     
     def closeEvent(self, event):
@@ -50,6 +50,7 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("РЕГУЛЯРНАЯ ДЕФЕКАЦИЯ")
         self.setFixedSize(QSize(600, 400))
         self.__center()
+        self.setStyleSheet("background-color: white;")
         
     def __center(self):
         qr=self.frameGeometry()           
