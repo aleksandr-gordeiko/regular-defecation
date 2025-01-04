@@ -8,5 +8,8 @@ mv dist/app.exe regular-defecation
 cp -R ../resources regular-defecation/resources
 Compress-Archive -Path regular-defecation\* -DestinationPath regular-defecation.zip
 
-rm -R build, dist, regular-defecation, app.spec
+cp ../scripts/make_installer.nsi .
+makensis make_installer.nsi
+
+rm -R build, dist, app.spec, make_installer.nsi
 cd ..
