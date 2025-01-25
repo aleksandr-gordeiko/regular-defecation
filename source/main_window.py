@@ -4,7 +4,7 @@ from typing import Callable
 
 from PyQt6.QtMultimedia import QSoundEffect
 from PyQt6.QtCore import QSize, Qt, QUrl
-from PyQt6.QtGui import QGuiApplication, QShortcut, QKeySequence
+from PyQt6.QtGui import QGuiApplication, QShortcut, QKeySequence, QPixmap
 from PyQt6.QtWidgets import QMainWindow, QPushButton, QVBoxLayout, QWidget, QLabel, QSystemTrayIcon
 
 from timer import CountdownTimer
@@ -48,7 +48,7 @@ class MainWindow(QMainWindow):
     
     def __window_setup(self):
         self.setWindowTitle("РЕГУЛЯРНАЯ ДЕФЕКАЦИЯ")
-        self.setFixedSize(QSize(600, 400))
+        self.setFixedSize(QSize(800, 600))
         self.__center()
         self.setStyleSheet("background-color: white;")
         
@@ -65,7 +65,7 @@ class MainWindow(QMainWindow):
         root_widget.setLayout(vbox)
         
         self.timer_label = QLabel()
-        self.timer_label.setText("КАЛОВЫЙ ВЗРЫВ ЧЕРЕЗ")
+        self.timer_label.setText("ВАШ СКУФ ОБОСРЁТСЯ ЧЕРЕЗ")
         self.timer_label.setStyleSheet("color: red;\
                                   font-family: arial;\
                                   font-size: 40px")
@@ -75,6 +75,13 @@ class MainWindow(QMainWindow):
         self.timer = CountdownTimer(timeout_sec, self.__timer_cb, parent=self)
         self.timer.reset()
         vbox.addWidget(self.timer)
+        
+        image_label = QLabel()
+        image = QPixmap("resources/images/skuf.png")
+        image_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        image_label.setPixmap(image)
+        image_label.setScaledContents(True)
+        vbox.addWidget(image_label)
         
         self.defecate_btn = QPushButton("ПОСРАТЬ С КАЙФОМ")
         self.defecate_btn.setStyleSheet("background-color: green;\

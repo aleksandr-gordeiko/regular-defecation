@@ -2,6 +2,7 @@
 
 from typing import Callable
 
+import PyQt6.Qt6 as Qt
 from PyQt6.QtCore import Qt, QTimer
 from PyQt6.QtGui import QColorConstants
 from PyQt6.QtWidgets import QTextEdit, QVBoxLayout, QWidget
@@ -57,6 +58,7 @@ class CountdownTimer(QWidget):
         self.displayArea.setFontFamily("Arial")
         self.displayArea.setFontPointSize(55)
         self.displayArea.setTextInteractionFlags(Qt.TextInteractionFlag.NoTextInteraction)
+        self.displayArea.setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
         
         vbox = QVBoxLayout()
         vbox.addWidget(self.displayArea)
